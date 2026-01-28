@@ -58,6 +58,24 @@ if (document.getElementById('piketForm')) {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
+        // Validate that at least some schedule data is provided
+        let hasScheduleData = false;
+        if (data.metode === 'manual') {
+            const hariItems = document.querySelectorAll('.hari-item');
+            hariItems.forEach(item => {
+                const siswa = item.querySelector('textarea').value.split(',').map(s => s.trim()).filter(s => s);
+                if (siswa.length > 0) hasScheduleData = true;
+            });
+        } else {
+            const siswaList = document.getElementById('daftarSiswa').value.split(',').map(s => s.trim()).filter(s => s);
+            if (siswaList.length > 0) hasScheduleData = true;
+        }
+
+        if (!hasScheduleData) {
+            alert('Harap isi setidaknya satu jadwal piket atau daftar siswa untuk diacak.');
+            return;
+        }
+
         // Collect schedule data
         if (data.metode === 'manual') {
             data.jadwal = [];
@@ -65,7 +83,9 @@ if (document.getElementById('piketForm')) {
             hariItems.forEach(item => {
                 const hari = item.querySelector('.hari-select').value;
                 const siswa = item.querySelector('textarea').value.split(',').map(s => s.trim()).filter(s => s);
-                data.jadwal.push({ hari, siswa });
+                if (siswa.length > 0) {
+                    data.jadwal.push({ hari, siswa });
+                }
             });
         } else {
             const siswaList = document.getElementById('daftarSiswa').value.split(',').map(s => s.trim()).filter(s => s);
@@ -123,16 +143,16 @@ if (document.getElementById('scheduleContainer')) {
 
 function generateScheduleHTML(data) {
     let html = '';
-    
+
     // Detect screen size untuk responsive font sizing
     const isMobile = window.innerWidth < 480;
     const isTablet = window.innerWidth < 768;
-    
+
     // Padding responsive - Portrait standard
     let padding = '35px';
     if (isMobile) padding = '12px';
     else if (isTablet) padding = '20px';
-    
+
     // Gap responsive
     let gap = '18px';
     let gapSmall = '16px';
@@ -144,6 +164,17 @@ function generateScheduleHTML(data) {
         gapSmall = '12px';
     }
 
+    // Generate header info if provided
+    let headerInfo = '';
+    if (data.namaSekolah || data.kelas || data.waliKelas || data.ketuaKelas) {
+        const infoParts = [];
+        if (data.namaSekolah) infoParts.push(data.namaSekolah);
+        if (data.kelas) infoParts.push(data.kelas);
+        if (data.waliKelas) infoParts.push(data.waliKelas);
+        if (data.ketuaKelas) infoParts.push(data.ketuaKelas);
+        headerInfo = infoParts.join(' | ');
+    }
+
     if (data.template == 1) {
         // Template Sepia/Coklat - Desain Elegan
         html = `
@@ -151,12 +182,21 @@ function generateScheduleHTML(data) {
                 .sepia-container {
                     background-color: #e8dcc8;
                     padding: ${padding};
-                    background-image: 
+                    background-image:
                         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Cpath d='M0 0l50 50M50 0L0 50' stroke='%238b7355' stroke-width='1' opacity='0.1'/%3E%3C/svg%3E");
                     box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
                     height: 100%;
+                }
+                .sepia-header-info {
+                    background-color: #8b6f47;
+                    color: white;
+                    padding: ${isMobile ? '6px' : isTablet ? '8px' : '10px'};
+                    text-align: center;
+                    font-size: ${isMobile ? '8px' : isTablet ? '10px' : '12px'};
+                    margin-bottom: ${isMobile ? '8px' : '12px'};
+                    border-radius: 6px;
                 }
                 .sepia-title {
                     color: #5c4033;
@@ -236,6 +276,7 @@ function generateScheduleHTML(data) {
                 }
             </style>
             <div class="sepia-container">
+                ${headerInfo ? `<div class="sepia-header-info">${headerInfo}</div>` : ''}
                 <div class="sepia-title">🧹 Jadwal Piket 🧹</div>
                 <div class="sepia-subtitle">Kelas ${data.kelas}</div>
                 <div class="sepia-grid">
@@ -345,6 +386,7 @@ function generateScheduleHTML(data) {
                 }
             </style>
             <div class="sticky-container">
+                ${headerInfo ? `<div style="background-color: #d4b896; color: #6b5344; padding: ${isMobile ? '6px' : isTablet ? '8px' : '10px'}; text-align: center; font-size: ${isMobile ? '8px' : isTablet ? '10px' : '12px'}; margin-bottom: ${isMobile ? '8px' : '12px'}; border-radius: 6px;">${headerInfo}</div>` : ''}
                 <div class="sticky-header">
                     <div class="sticky-header-title">JADWAL PIKET KELAS</div>
                     <div class="sticky-header-subtitle">Kelas: ${data.kelas}</div>
@@ -463,6 +505,7 @@ function generateScheduleHTML(data) {
                 }
             </style>
             <div class="colorful-container">
+                ${headerInfo ? `<div style="background-color: #ffd699; color: #1a1a1a; padding: ${isMobile ? '6px' : isTablet ? '8px' : '10px'}; text-align: center; font-size: ${isMobile ? '8px' : isTablet ? '10px' : '12px'}; margin-bottom: ${isMobile ? '8px' : '12px'}; border-radius: 6px; font-weight: bold;">${headerInfo}</div>` : ''}
                 <div class="colorful-title">JADWAL PIKET KELAS</div>
                 <div class="colorful-kelas">${data.kelas} - ${data.namaSekolah}</div>
                 <div class="colorful-grid">
