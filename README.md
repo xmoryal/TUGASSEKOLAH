@@ -1,4 +1,4 @@
-# TUGASSEKOLAH.COM
+# TUGASSEKOLAH
 
 [![Website](https://img.shields.io/badge/🌐_Live_Demo-https://xmoryal.github.io/TUGASSEKOLAH/-blue?style=for-the-badge)](https://xmoryal.github.io/TUGASSEKOLAH/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-success?style=for-the-badge)](https://xmoryal.github.io/TUGASSEKOLAH/)
@@ -127,7 +127,7 @@ Website ini dirancang responsive untuk semua ukuran perangkat:
 ## 📁 Struktur File
 
 ```
-TUGASSEKOLAH.COM/
+TUGASSEKOLAH/
 ├── index.html          # Halaman utama
 ├── form.html           # Form input jadwal piket
 ├── template.html       # Pemilihan template
@@ -198,4 +198,4 @@ Kontribusi untuk pengembangan website ini sangat diterima! Silakan:
 
 **Dibuat dengan ❤️ untuk memudahkan dunia pendidikan Indonesia**
 
-&copy; 2026 TUGASSEKOLAH.COM - Semua data Anda terjaga privasi.
+&copy; 2026 TUGASSEKOLAH - Semua data Anda terjaga privasi.
