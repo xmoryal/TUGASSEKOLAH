@@ -27,17 +27,19 @@ if (document.getElementById('piketForm')) {
         const hariItem = document.createElement('div');
         hariItem.className = 'hari-item mb-4 p-4 border border-gray-200 rounded';
         hariItem.innerHTML = `
-            <div class="flex justify-between items-center mb-2">
-                <label class="font-medium">Hari:</label>
-                <select class="hari-select px-2 py-1 border border-gray-300 rounded">
-                    <option value="Senin">Senin</option>
-                    <option value="Selasa">Selasa</option>
-                    <option value="Rabu">Rabu</option>
-                    <option value="Kamis">Kamis</option>
-                    <option value="Jumat">Jumat</option>
-                    <option value="Sabtu">Sabtu</option>
-                </select>
-                <button type="button" class="hapus-hari bg-red-500 text-white px-2 py-1 rounded text-sm">Hapus</button>
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 space-y-2 sm:space-y-0">
+                <div class="flex items-center space-x-2">
+                    <label class="font-medium">Hari:</label>
+                    <select class="hari-select px-2 py-1 border border-gray-300 rounded">
+                        <option value="Senin">Senin</option>
+                        <option value="Selasa">Selasa</option>
+                        <option value="Rabu">Rabu</option>
+                        <option value="Kamis">Kamis</option>
+                        <option value="Jumat">Jumat</option>
+                        <option value="Sabtu">Sabtu</option>
+                    </select>
+                </div>
+                <button type="button" class="hapus-hari bg-red-500 text-white px-2 py-1 rounded text-sm self-start sm:self-auto">Hapus</button>
             </div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Nama Siswa Piket:</label>
             <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" rows="2" placeholder="Masukkan nama siswa, pisahkan dengan koma"></textarea>
