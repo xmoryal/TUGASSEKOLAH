@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Template - TUGASSEKOLAH.COM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Pilih Template Jadwal Piket</h1>
+            <p class="text-lg mt-2">Pilih template yang Anda inginkan</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Template 1: Sepia Coklat -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer hover:shadow-xl transition" onclick="selectTemplate(1)">
+                <div class="text-6xl mb-4">🧹</div>
+                <h3 class="text-xl font-bold text-primary mb-4">Template Sepia</h3>
+                <p class="text-gray-600 mb-6">Desain elegan dengan tema coklat muda.</p>
+                <div style="background-color: #e8dcc8; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="color: #5c4033; font-weight: bold; font-size: 18px; margin-bottom: 8px; font-style: italic;">Jadwal Piket</div>
+                    <div style="background-color: #8b6f47; color: white; padding: 8px; border-radius: 8px; font-size: 12px;">
+                        <div style="background-color: rgba(255,255,255,0.2); padding: 5px; border-radius: 10px; margin-bottom: 8px; font-weight: bold;">Senin</div>
+                        <div style="font-size: 11px;">• Ahmad<br/>• Budi</div>
+                    </div>
+                </div>
+                <button class="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700 transition">Pilih Template</button>
+            </div>
+
+            <!-- Template 2: Sticky Notes -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer hover:shadow-xl transition" onclick="selectTemplate(2)">
+                <div class="text-6xl mb-4">📝</div>
+                <h3 class="text-xl font-bold text-primary mb-4">Template Sticky Notes</h3>
+                <p class="text-gray-600 mb-6">Desain casual dengan kertas catatan.</p>
+                <div style="background-color: #f5f1e8; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="color: #6b5344; font-weight: bold; margin-bottom: 10px;">JADWAL PIKET KELAS</div>
+                    <div style="background-color: #f0ead3; padding: 10px; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                        <div style="color: #6b5344; font-weight: bold; margin-bottom: 5px; font-size: 13px;">Senin</div>
+                        <div style="color: #7d6d5e; font-size: 11px;">• Ahmad</div>
+                    </div>
+                </div>
+                <button class="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700 transition">Pilih Template</button>
+            </div>
+
+            <!-- Template 3: Orange Ceria -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer hover:shadow-xl transition" onclick="selectTemplate(3)">
+                <div class="text-6xl mb-4">🧼</div>
+                <h3 class="text-xl font-bold text-primary mb-4">Template Ceria</h3>
+                <p class="text-gray-600 mb-6">Desain colorful dengan tema orange.</p>
+                <div style="background: linear-gradient(135deg, #ff9a56 0%, #ff8c42 100%); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div style="color: #1a1a1a; font-weight: bold; font-size: 16px; margin-bottom: 8px;">JADWAL PIKET KELAS</div>
+                    <div style="background-color: #ffd699; color: #1a1a1a; padding: 10px; border-radius: 8px;">
+                        <div style="background-color: #ffb366; color: white; padding: 5px; border-radius: 6px; font-weight: bold; font-size: 12px; margin-bottom: 5px;">Senin</div>
+                        <div style="font-size: 11px;">• Ahmad</div>
+                    </div>
+                </div>
+                <button class="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700 transition">Pilih Template</button>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <button onclick="window.history.back()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition">Kembali</button>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white py-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2026 TUGASSEKOLAH.COM. Semua hak dilindungi sama GUA!.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

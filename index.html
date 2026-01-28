@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGASSEKOLAH.COM - Mudahkan Tugas Pendidikan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue school theme
+                        secondary: '#f59e0b', // Orange accent
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white py-6 md:py-8">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-2xl md:text-4xl font-bold">TUGASSEKOLAH.COM</h1>
+            <p class="text-base md:text-xl mt-2 px-2">Mempermudah Hal-hal Berkaitan dengan Tugas Pendidikan</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8 md:py-12 px-4">
+        <!-- Fitur Utama -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-primary mb-8 md:mb-12">Fitur Layanan Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                <!-- Generate Jadwal Piket -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition">
+                    <div class="text-5xl md:text-6xl mb-4">📅</div>
+                    <h2 class="text-lg md:text-2xl font-bold text-primary mb-3 md:mb-4">Generate Jadwal Piket</h2>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Buat jadwal piket siswa dengan mudah dan cepat.</p>
+                    <a href="form.html" class="bg-primary text-white px-4 md:px-6 py-2 md:py-3 rounded-lg hover:bg-blue-700 transition inline-block">Mulai</a>
+                </div>
+
+                <!-- Generate Raport (Coming Soon) -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center opacity-50">
+                    <div class="text-5xl md:text-6xl mb-4">📊</div>
+                    <h2 class="text-lg md:text-2xl font-bold text-primary mb-3 md:mb-4">Generate Raport</h2>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Fitur ini akan segera hadir.</p>
+                    <button class="bg-gray-400 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg cursor-not-allowed" disabled>Coming Soon</button>
+                </div>
+
+                <!-- Kantin Online (Coming Soon) -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center opacity-50">
+                    <div class="text-5xl md:text-6xl mb-4">🍽️</div>
+                    <h2 class="text-lg md:text-2xl font-bold text-primary mb-3 md:mb-4">Kantin Online</h2>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Fitur ini akan segera hadir.</p>
+                    <button class="bg-gray-400 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg cursor-not-allowed" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan Website -->
+        <section class="bg-white rounded-lg shadow-lg p-6 md:p-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-primary mb-8 md:mb-12">Keunggulan TUGASSEKOLAH.COM</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <!-- Keunggulan 1: Privasi Data -->
+                <div class="text-center p-4 md:p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border-2 border-primary">
+                    <div class="text-4xl md:text-5xl mb-3 md:mb-4">🔒</div>
+                    <h3 class="text-base md:text-xl font-bold text-primary mb-2 md:mb-3">Privasi Data Terjamin</h3>
+                    <p class="text-gray-700 text-xs md:text-sm leading-relaxed">Data Anda 100% aman! Data tidak disimpan di database, sehingga informasi Anda tetap privat dan terlindungi sepenuhnya.</p>
+                </div>
+
+                <!-- Keunggulan 2: Mudah Digunakan -->
+                <div class="text-center p-4 md:p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-lg border-2 border-green-500">
+                    <div class="text-4xl md:text-5xl mb-3 md:mb-4">✨</div>
+                    <h3 class="text-base md:text-xl font-bold text-green-700 mb-2 md:mb-3">Mudah Digunakan</h3>
+                    <p class="text-gray-700 text-xs md:text-sm leading-relaxed">Antarmuka yang intuitif dan user-friendly membuat siapa saja dapat menggunakan aplikasi ini tanpa kesulitan.</p>
+                </div>
+
+                <!-- Keunggulan 3: Gratis -->
+                <div class="text-center p-4 md:p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-lg border-2 border-yellow-500">
+                    <div class="text-4xl md:text-5xl mb-3 md:mb-4">💰</div>
+                    <h3 class="text-base md:text-xl font-bold text-yellow-700 mb-2 md:mb-3">Sepenuhnya Gratis</h3>
+                    <p class="text-gray-700 text-xs md:text-sm leading-relaxed">Tidak ada biaya tersembunyi. Gunakan semua fitur kami secara gratis tanpa membayar sepeser pun.</p>
+                </div>
+
+                <!-- Keunggulan 4: Akses Cepat -->
+                <div class="text-center p-4 md:p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg border-2 border-purple-500">
+                    <div class="text-4xl md:text-5xl mb-3 md:mb-4">⚡</div>
+                    <h3 class="text-base md:text-xl font-bold text-purple-700 mb-2 md:mb-3">Akses Cepat</h3>
+                    <p class="text-gray-700 text-xs md:text-sm leading-relaxed">Aplikasi web yang responsif dan cepat, dapat diakses kapan saja dan dari mana saja melalui browser.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-4 md:py-6 mt-12 md:mt-16">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-sm md:text-base">&copy; 2026 TUGASSEKOLAH.COM. Semua hak dilindungi sama GUA!.</p>
+        </div>
+    </footer>
+</body>
+</html>

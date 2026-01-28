@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Jadwal Piket - TUGASSEKOLAH.COM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Generate Jadwal Piket</h1>
+            <p class="text-lg mt-2">Isi data untuk membuat jadwal piket</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+        <form id="piketForm" class="bg-white rounded-lg shadow-lg p-8">
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label for="namaSekolah" class="block text-sm font-medium text-gray-700 mb-2">Nama Sekolah</label>
+                    <input type="text" id="namaSekolah" name="namaSekolah" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                    <label for="kelas" class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
+                    <input type="text" id="kelas" name="kelas" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                    <label for="waliKelas" class="block text-sm font-medium text-gray-700 mb-2">Wali Kelas</label>
+                    <input type="text" id="waliKelas" name="waliKelas" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                <div>
+                    <label for="ketuaKelas" class="block text-sm font-medium text-gray-700 mb-2">Ketua Kelas</label>
+                    <input type="text" id="ketuaKelas" name="ketuaKelas" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Metode Input Jadwal</label>
+                <div class="flex space-x-4">
+                    <label class="flex items-center">
+                        <input type="radio" name="metode" value="manual" class="mr-2" checked>
+                        Manual (disarankan)
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="metode" value="acak" class="mr-2">
+                        Acak Otomatis
+                    </label>
+                </div>
+            </div>
+
+            <div id="manualInput" class="mb-6">
+                <h3 class="text-lg font-semibold mb-4">Daftar Hari dan Siswa Piket</h3>
+                <div id="hariContainer">
+                    <div class="hari-item mb-4 p-4 border border-gray-200 rounded">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-medium">Hari:</label>
+                            <select class="hari-select px-2 py-1 border border-gray-300 rounded">
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                            </select>
+                            <button type="button" class="hapus-hari bg-red-500 text-white px-2 py-1 rounded text-sm">Hapus</button>
+                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Siswa Piket:</label>
+                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" rows="2" placeholder="Masukkan nama siswa, pisahkan dengan koma"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="tambahHari" class="bg-secondary text-white px-4 py-2 rounded hover:bg-orange-600 transition">Tambah Hari</button>
+            </div>
+
+            <div id="acakInput" class="mb-6 hidden">
+                <h3 class="text-lg font-semibold mb-4">Daftar Siswa untuk Acak</h3>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Siswa (pisahkan dengan koma):</label>
+                <textarea id="daftarSiswa" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" rows="4" placeholder="Contoh: Ahmad, Budi, Cici, Dedi"></textarea>
+                <p class="text-sm text-gray-600 mt-2">Sistem akan mengacak nama siswa untuk setiap hari.</p>
+            </div>
+
+            <div class="mb-6">
+                <label for="keteranganHukuman" class="block text-sm font-medium text-gray-700 mb-2">Keterangan Hukuman (Opsional)</label>
+                <textarea id="keteranganHukuman" name="keteranganHukuman" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" rows="3" placeholder="Contoh: Jika tidak piket, maka diberi hukuman push-up 10 kali"></textarea>
+            </div>
+
+            <div class="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <button type="submit" class="bg-primary text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition text-sm sm:text-base w-full sm:w-auto">Lanjut Pilih Template</button>
+                <button type="button" onclick="window.history.back()" class="bg-gray-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-gray-600 transition text-sm sm:text-base w-full sm:w-auto">Kembali</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="bg-primary text-white py-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2026 TUGASSEKOLAH.COM. Semua hak dilindungi sama GUA!.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

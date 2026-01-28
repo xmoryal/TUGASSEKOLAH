@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Jadwal Piket - TUGASSEKOLAH.COM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-primary text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Preview Jadwal Piket</h1>
+            <p class="text-lg mt-2">Lihat hasil jadwal piket Anda</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-12 px-4">
+        <style>
+            .preview-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                min-height: 100vh;
+                background-color: #f3f3f3;
+                padding: 20px 10px;
+            }
+            #scheduleContainer {
+                background: transparent;
+                border-radius: 0;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                position: relative;
+                width: 95vw;
+                aspect-ratio: 210 / 297;
+                max-width: 400px;
+            }
+            @media (min-width: 480px) {
+                .preview-wrapper {
+                    padding: 25px 15px;
+                }
+                #scheduleContainer {
+                    width: 90vw;
+                    max-width: 500px;
+                }
+            }
+            @media (min-width: 768px) {
+                .preview-wrapper {
+                    padding: 40px 20px;
+                }
+                #scheduleContainer {
+                    width: auto;
+                    max-width: 750px;
+                }
+            }
+            @media (min-width: 1024px) {
+                #scheduleContainer {
+                    max-width: 900px;
+                }
+            }
+            @media print {
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background: white;
+                }
+                .preview-wrapper {
+                    padding: 0;
+                    min-height: auto;
+                    background: white;
+                }
+                #scheduleContainer {
+                    box-shadow: none;
+                    page-break-after: avoid;
+                    max-width: 100% !important;
+                    width: 100% !important;
+                }
+            }
+        </style>
+        
+        <div class="preview-wrapper">
+            <div id="scheduleContainer" class="mb-8 mx-auto">
+                <!-- Schedule content will be generated here -->
+            </div>
+        </div>
+
+        <div class="text-center flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 sm:flex-wrap">
+            <button onclick="saveAsPNG()" class="bg-green-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-green-600 transition text-sm sm:text-base w-full sm:w-auto">Simpan sebagai PNG</button>
+            <button onclick="saveAsPDF()" class="bg-blue-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-blue-600 transition text-sm sm:text-base w-full sm:w-auto">Simpan sebagai PDF</button>
+            <button onclick="window.history.back()" class="bg-gray-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-gray-600 transition text-sm sm:text-base w-full sm:w-auto">Kembali</button>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white py-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2026 TUGASSEKOLAH.COM. Semua hak dilindungi sama GUA!.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
