@@ -280,7 +280,7 @@ function generateScheduleHTML(data) {
                 }
                 .sticky-header-title {
                     color: #6b5344;
-                    font-size: ${isMobile ? '16px' : isTablet ? '20px' : ukuran === 'A5' ? '22px' : '30px'};
+                    font-size: ${isMobile ? '16px' : isTablet ? '20px' : '30px'};
                     font-weight: bold;
                     margin: 0 0 4px 0;
                 }
